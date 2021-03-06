@@ -5,11 +5,11 @@ ARG BUILD_DATE
 ARG VCS_REF
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/febLey/counter-strike_server"
+      org.label-schema.vcs-url="https://github.com/ffuubarbuzz/docker-hlds"
 
 # define default env variables
 ENV PORT 27015
-ENV MAP de_dust2
+ENV MAP crossfire
 ENV MAXPLAYERS 16
 ENV SV_LAN 0
 
@@ -38,4 +38,4 @@ RUN ln -s ../Steam/linux32 sdk32
 
 # start server
 WORKDIR /hlds
-ENTRYPOINT ./hlds_run -game cstrike -strictportbind -ip 0.0.0.0 -port $PORT +sv_lan $SV_LAN +map $MAP -maxplayers $MAXPLAYERS
+ENTRYPOINT ./hlds_run -strictportbind -ip 0.0.0.0 -port $PORT +sv_lan $SV_LAN +map $MAP -maxplayers $MAXPLAYERS
